@@ -1,0 +1,393 @@
+/* Vue.js Specific Styles */
+
+/* CSS Variables */
+:root {
+  /* Base Theme Colors */
+  --background: #ffffff;
+  --foreground: #000000;
+  --card-background: #ffffff;
+  --border: #e2e8f0;
+  --muted-foreground: #64748b;
+  
+  /* Primary Colors (matching theme.json) */
+  --primary: hsl(255, 91%, 60%);
+  --primary-rgb: 122, 40, 240;
+  
+  /* UI Feedback Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --destructive: #ef4444;
+  --secondary: #6b7280;
+  --secondary-rgb: 107, 114, 128;
+  --destructive-rgb: 239, 68, 68;
+}
+
+/* Dark Mode Variables */
+:root.dark {
+  --background: #1e1e2e;
+  --foreground: #ffffff;
+  --card-background: #2a2b3c;
+  --border: #2d3748;
+  --muted-foreground: #94a3b8;
+}
+
+/* Main container */
+.tour-management-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--background);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  padding: 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.theme-button {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.theme-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  padding: 1rem 2rem;
+  text-align: center;
+  background-color: var(--background);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Panel components */
+.panel {
+  background-color: var(--background);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.panel-content {
+  padding: 1rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Card styling */
+.card {
+  background-color: var(--card-background, #fff);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.card-body {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+}
+
+/* Selected card */
+.card.selected {
+  border: 2px solid var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Card variations */
+.driver-card {
+  cursor: pointer;
+}
+
+.tour-card {
+  cursor: pointer;
+}
+
+.tour-driver-match {
+  border-left: 4px solid var(--success, #10b981);
+}
+
+.tour-driver-mismatch {
+  border-left: 4px solid var(--warning, #f59e0b);
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.form-input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.25);
+}
+
+.form-error {
+  color: var(--destructive, #ef4444);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Button styling */
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.btn-primary {
+  background-color: var(--primary, #3b82f6);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: rgba(var(--primary-rgb), 0.9);
+}
+
+.btn-primary:disabled {
+  background-color: rgba(var(--primary-rgb), 0.5);
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--secondary, #6b7280);
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(var(--secondary-rgb), 0.9);
+}
+
+.btn-danger {
+  background-color: var(--destructive, #ef4444);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: rgba(var(--destructive-rgb), 0.9);
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-primary {
+  background-color: var(--primary, #3b82f6);
+  color: white;
+}
+
+.badge-success {
+  background-color: var(--success, #10b981);
+  color: white;
+}
+
+.badge-warning {
+  background-color: var(--warning, #f59e0b);
+  color: white;
+}
+
+.badge-danger {
+  background-color: var(--destructive, #ef4444);
+  color: white;
+}
+
+/* Driver card */
+.driver-initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 0.75rem;
+  font-weight: 600;
+}
+
+/* Tour card additional styles */
+.tour-info {
+  margin-bottom: 1rem;
+}
+
+.tour-info-row {
+  display: flex;
+  margin-bottom: 0.25rem;
+}
+
+.tour-info-label {
+  font-weight: 500;
+  width: 60px;
+}
+
+.tour-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Dark mode variations */
+:root.dark {
+  --card-background: rgba(255, 255, 255, 0.05);
+}
+
+:root.dark .btn-secondary {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+:root.dark .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+:root.dark .driver-initials {
+  background-color: var(--primary);
+}
